@@ -1,0 +1,92 @@
+\documentclass{deime}
+%\usepackage[dvipdfm]{graphicx}
+%\usepackage{latexsym}
+%\usepackage{txfonts}
+%\usepackage[fleqn]{amsmath}
+%\usepackage[psamsfonts]{amssymb}
+%\usepackage[deluxe]{otf}
+
+% 印刷位置調整 %
+% 必要に応じて値を変更してください．
+\hoffset -10mm % <-- 左に 10mm 移動
+\voffset -10mm % <-- 上に 10mm 移動
+
+\newcommand{\AmSLaTeX}{%
+ $\mathcal A$\lower.4ex\hbox{$\!\mathcal M\!$}$\mathcal S$-\LaTeX}
+\newcommand{\PS}{{\scshape Post\-Script}}
+\def\BibTeX{{\rmfamily B\kern-.05em{\scshape i\kern-.025em b}\kern-.08em
+ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125em X}}
+
+\papernumber{DEIM Forum 2014 XX-Y}
+
+\etitle{DEIM Forum 2014 Class File }
+\esubtitle{Subtitle}
+\authorlist{%
+ \authorentry[kaoru@lafore.ac.jp]{内海 薫}{Kaoru UTSUMI}{Shuzenji,Teito}% 
+ \authorentry[manabu@royal-u.ac.jp]{湯川 学}{Manabu YUKAWA}{Teito}% 
+ \authorentry[kusanagi@gmail.com]{草薙 俊平}{Shunpei KUSANAGI}{Kyoto}% 
+}
+\affiliate[Shuzenji]{修善寺大学情報学部\hskip1zw
+  〒410--2415 静岡県伊豆市大平1529}
+ {Faculty of Information Science and Engineering,
+  Shuzenji University\\
+  1529 Ohira, Izu, Shizuoka,
+  410--2415 Japan}
+\affiliate[Teito]{帝都大学理工学部物理学科\hskip1zw
+  〒100--0001 東京都千代田区千代田1番1号}
+ {College of Science and Technology, Royal
+   University of Tokyo\\
+  1--1 Chiyoda, Chiyoda, Tokyo,
+  100--0001 Japan}
+\affiliate[Kyoto]{帝都大学工学部情報工学科\hskip1zw
+  〒602--0881 京都府京都市上京区京都御苑3}
+ {Faculty of Engineering, Royal University of Kyoto\\
+  Kyoto-Gyoen 3, Kamigyo, Kyoto
+  602--0881 Japan}
+
+%\MailAddress{$\dagger$hanako@deim.ac.jp,
+% $\dagger\dagger$\{taro,jiro\}@jforum.co.jp}
+
+\begin{document}
+\pagestyle{empty}
+\begin{eabstract}
+Paper format for DEIM Forum 2014 Proceedings.
+\end{eabstract}
+\begin{ekeyword}
+p\LaTeXe\ class file, typesetting
+\end{ekeyword}
+\maketitle
+
+\section{タイトル・概要に関して}
+
+1ページ目上部には，タイトル，発表者氏名，所属，住所，メールアドレス，キーワードの和文と英文及びあらまし(和文300字程度，英文100語程度)を，それぞれ記述してください．
+なお、和文論文については英文タイトル，アブストラクト等は削除して頂いて構いません。
+下記のコマンドで講演番号を挿入して下さい.
+\begin{verbatim}
+ \papernumber{DEIM Forum 2014 XX-Y}
+\end{verbatim}
+XXはセッション番号（例：1A, 3B），Yはセッション内での発表順（1, 2, ...）です．
+番号についてはプログラムをご覧ください．
+なお，プログラム決定前の初回投稿時にはXX-Yの部分の記入は不要です．
+
+\section{原稿提出枚数}
+
+所定のページ数（4～8ページ）を厳守してください．
+Ph.Dセッション投稿者は8ページを推奨します．
+
+\section{原稿の書き方}
+
+原稿のスタイルは，A4サイズで，9ポイントのフォントを使用し，2段組み，シングルスペースとして下さい．
+
+\vspace{30mm}
+
+\begin{thebibliography}{99}
+\bibitem{Minmei2009}
+大河内民明丸，「分子核構造その理論」，民明書房
+
+\bibitem{Tanaka2011}
+Lilis Aadam, Lilin Tabris, and Tohji Suzuhara ``SKATER'SWALTZ: Good Presentation for DEIM'', Proc. of ACM ROBOT, pp. 10-22, 2010.
+\end{thebibliography}
+
+
+\end{document}
