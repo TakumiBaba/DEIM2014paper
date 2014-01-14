@@ -122,7 +122,8 @@ BabaScriptは、人への命令構文を含んだオブジェクト(以下、人
 パスタ料理をつくるプログラムを以下に示す
 
 ### プログラム
-
+####script側
+	
 	baba = new Baba.Script("takumibaba")
 	baba.パスタ鍋に水を入れ沸騰させる();
 	baba.on("boil", function(){
@@ -137,8 +138,23 @@ BabaScriptは、人への命令構文を含んだオブジェクト(以下、人
 			done()
 		});		
 	});
+	sensor = new Sensor("鍋")
+	setTinterval(function(){
+		if (sensor.getState === BOIL){ baba.emit("boil")}
+	}, 1000)
+	
+
+####client側
+
+	client = Baba.createClient("takumibaba").on("get_task",function(){
+		
+	});
+	
+	
 	
 ### クライアント
+		
+	
 	
 
 # 考察
