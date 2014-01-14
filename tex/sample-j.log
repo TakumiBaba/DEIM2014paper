@@ -1,0 +1,166 @@
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.1.11)  14 JAN 2014 16:53
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**sample-j.tex
+(./sample-j.tex
+pLaTeX2e <2006/11/10> (based on LaTeX2e <2011/06/27> patch level 0)
+Babel <3.9f> and hyphenation patterns for 78 languages loaded.
+(./deimj.cls
+Document Class: deimj 
+\@JQ=\dimen118
+\@Q=\dimen119
+\@EM=\dimen120
+\c@@paper=\count81
+\@authorlist=\toks15
+\@authorcnt=\count82
+\@alcnt=\count83
+\p@alcnt=\count84
+\@totalnumber=\count85
+\authornamesep=\dimen121
+\tn@dn=\count86
+\@spcnt=\count87
+\alignorder=\count88
+\totalnumberm@ne=\count89
+\@authorcntp@ne=\count90
+\chk@alcnt=\count91
+\chk@p@alcnt=\count92
+\Pauthorsep=\dimen122
+\jabstractbox=\box41
+\jkeywordbox=\box42
+\c@section=\count93
+\c@subsection=\count94
+\c@subsubsection=\count95
+\c@paragraph=\count96
+\c@subparagraph=\count97
+\@hlskip=\skip41
+\verbatimleftmargin=\dimen123
+\verbatimbaselineskip=\dimen124
+\c@figure=\count98
+\c@table=\count99
+\abovecaptionskip=\skip42
+\belowcaptionskip=\skip43
+\@tempboxb=\box43
+\capwidth=\dimen125
+\ecapwidth=\dimen126
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 2506.
+LaTeX Font Info:    Redeclaring symbol font `mincho' on input line 2564.
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `normal'
+(Font)                  JY1/mc/m/n --> JY1/mc/m/n on input line 2564.
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY1/gt/m/n --> JY1/mc/m/n on input line 2564.
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 2564.
+LaTeX Font Info:    Redeclaring math alphabet \mathgt on input line 2564.
+LaTeX Font Info:    Overwriting math alphabet `\mathgt' in version `normal'
+(Font)                  JY1/gt/m/n --> JY1/gt/m/n on input line 2564.
+LaTeX Font Info:    Overwriting math alphabet `\mathgt' in version `bold'
+(Font)                  JY1/gt/m/n --> JY1/gt/m/n on input line 2564.
+LaTeX Info: Redefining \mc on input line 2572.
+LaTeX Info: Redefining \gt on input line 2573.
+\bibindent=\dimen127
+\c@profile=\count100
+\mathindent=\dimen128
+\@minsofar=\count101
+\@min=\count102
+\@cite@temp=\count103
+) (./sample-j.aux)
+\openout1 = `sample-j.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 52.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 52.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 56.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 56.
+LaTeX Font Info:    Calculating math sizes for size <16> on input line 58.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <16> not available
+(Font)              size <17.28> substituted on input line 58.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <16> not available
+(Font)              size <17.28> substituted on input line 58.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <16> on input line 58.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <11.19995> on input line 58.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 58.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 58.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 58.
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 58.
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <10.5> not available
+(Font)              size <10.95> substituted on input line 58.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <10.5> not available
+(Font)              size <10.95> substituted on input line 58.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.5> on input line 58.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7.34996> on input line 58.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5.25> on input line 58.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10.95> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 60.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10.95> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 60.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 60.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <9> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 83.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <9> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 83.
+
+Overfull \hbox (28.50671pt too wide) in paragraph at lines 88--89
+[]\OT1/cmr/m/n/8 Lilis Aadam, Lilin Tabris, and To-hji Suzuhara ``SKATER'SWALTZ
+:
+ []
+
+[1
+
+
+
+] (./sample-j.aux)
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 1.28pt have occurred.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 602 strings out of 494008
+ 6179 string characters out of 6154472
+ 67372 words of memory out of 5000000
+ 4127 multiletter control sequences out of 15000+600000
+ 21166 words of font info for 81 fonts, out of 8000000 for 9000
+ 745 hyphenation exceptions out of 8191
+ 24i,6n,23p,178b,211s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on sample-j.dvi (1 page, 4432 bytes).

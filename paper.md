@@ -40,7 +40,7 @@ BabaScriptは、人への命令構文を含んだオブジェクト(以下、人
 	
   	baba = new Baba.Script("baba");
   	baba.ボイルする(function(result){
-  		#
+  		# ...
   	});
 
 プログラム側で人オブジェクトを宣言するときには、第一引数にidを指定する。
@@ -87,7 +87,6 @@ BabaScriptは、人への命令構文を含んだオブジェクト(以下、人
 	  input = new Input(result.format)
 	  input.on("submit", function(value){
 	    client.returnValue(value)
-	    	    
 	  });  
 	});
 	
@@ -168,7 +167,7 @@ BabaScriptは、人への命令構文を含んだオブジェクト(以下、人
 
 AUTOMANは、cloudprogrammingという概念を唱え、通常のプログラミング言語内で、コンピュータによる計算と人による計算を統合した。
 
-CrowdForgeは、クラウドソーシングのためのMapReduce実装をしたもの。
+CrowdForgeは、クラウドソーシングのためのMapReduce実装をした。
 クラウドソーシングするタスクを適切に分割し、人力で解かせた後、集合させるためのツールキットだ。
 
 jabbewockyは、
