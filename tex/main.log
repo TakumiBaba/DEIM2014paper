@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.1.11)  14 JAN 2014 21:33
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.1.11)  14 JAN 2014 23:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -193,47 +193,45 @@ LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <9> not available
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <9> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 138.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 150.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 149.
 [1
 
 
-] [2]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 268.
+]
+File: images/framework-image.png Graphic file (type eps)
+ <images/framework-image.png> [2]
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 284.
 
- (/usr/local/texlive/2013/texmf-dist/tex/latex/base/omlcmr.fd
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <8> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 268.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 284.
 File: images/image4.png Graphic file (type eps)
 
 <images/image4.png>
-
-LaTeX Warning: Citation `HumanComputation' on page 3 undefined on input line 31
-4.
-
-[3]
+File: images/babascript-list.png Graphic file (type eps)
+ <images/babascript-list.png> [3]
 Missing character: There is no ^^e2 in font cmr8!
 Missing character: There is no ^^80 in font cmr8!
 Missing character: There is no ^^93 in font cmr8!
 Missing character: There is no ^^e2 in font cmr8!
 Missing character: There is no ^^80 in font cmr8!
 Missing character: There is no ^^93 in font cmr8!
- [4
-
-] (./main.aux)
+ [4] (./main.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.45pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 2254 strings out of 494008
- 29828 string characters out of 6154472
- 187486 words of memory out of 5000000
- 5730 multiletter control sequences out of 15000+600000
+ 2273 strings out of 494008
+ 30056 string characters out of 6154472
+ 239510 words of memory out of 5000000
+ 5747 multiletter control sequences out of 15000+600000
  20917 words of font info for 81 fonts, out of 8000000 for 9000
  745 hyphenation exceptions out of 8191
- 26i,6n,40p,223b,1436s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 26i,6n,40p,284b,1583s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.dvi (4 pages, 34020 bytes).
+Output written on main.dvi (4 pages, 38740 bytes).

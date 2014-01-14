@@ -57,7 +57,7 @@
 \papernumber{DEIM Forum 2014 XX-Y}
 
 \jtitle{BabaScript}
-\jsubtitle{人の行動をプログラムに組み込むためのプログラミング環境}
+\jsubtitle{人の行動を記述可能なプログラミング環境}
 \authorlist{%
  \authorentry[bb@sfc.keio.ac.jp]{馬場 匠見}{Takumi BABA}{Keio}% 
  \authorentry[shokai@sfc.keio.ac.jp]{橋本 翔}{Sho HASHIMOTO}{Keio}% 
@@ -88,7 +88,7 @@ BabaScriptは、人への命令構文と値を返すことのできるクライ�
 BabaScript環境によって、人・実世界・コンピュータの世界をより柔軟にプログラムすることが可能になる。
 \end{jabstract}
 \begin{jkeyword}
-ヒューマンコンピュテーション, プログラミング環境
+ヒューマンコンピュテーション, プログラミング環境, 
 \end{jkeyword}
 \maketitle
 
@@ -110,7 +110,7 @@ if 鍋が沸騰したら
   パスタを鍋に投入する
 \end{lstlisting}
     
-というようなことが、小売店の店員マニュアルでは
+というようなことが、小売店の店員マニュアルには
 
 \begin{lstlisting}[caption=,label=]
 if レジに人が並んでいる
@@ -125,7 +125,7 @@ if レジに人が並んでいる
 プログラムの中で、計算資源として人間を使うことも提案されている
 人とコンピュータ、両方の世界を記述するための統一的なものは存在せず、両者を同じフォーマットのドキュメントとして記述することはできない。
 
-本論文では、人の行動をプログラム内に記述可能にするプログラミング環境 BabaScript を提案する。
+本論文では、人の行動をプログラム内に記述可能なプログラミング環境 BabaScript を提案する。
 BabaScript環境によって、人の行動をプログラム内で記述可能となり、同一フォーマットのデータ上で人とコンピュータ両方への命令を記述することができる。
 また、特殊なプログラミング言語を使わず、高い拡張性を持つため、様々なアプリケーションに組み込むことができる。
 
@@ -136,8 +136,7 @@ BabaScript環境は、人への命令構文をプログラミング言語に付�
 既存のアプリケーションでも簡単にBabaScript環境を導入することができる。
 
 \subsection{人への命令構文}
-人への命令構文を含んだオブジェクト(以下、人オブジェクト)を宣言可能にするライブラリを実装した。
-javascript(node.js)とrubyの2言語で実装した。
+人への命令構文を含んだオブジェクト(以下、人オブジェクト)を宣言可能にするライブラリをjavascript(node.js)とrubyの2言語で実装した。
 人オブジェクトを宣言し、そのオブジェクトのメソッドを実行をすることで、人への命令が可能となる。
 オブジェクトに定義されていないメソッドは全て人への命令として解釈され、メソッドと引数を元に人への命令内容が生成される。
 プログラム内で人オブジェクトを宣言するときには、第一引数にidを指定する。
@@ -219,6 +218,18 @@ BabaScript環境では、以下のような流れで人への命令が配信さ�
 \item プログラムは、返ってきた値を元に指定された続きの処理を実行する
 \end{enumerate}
 
+\begin{figure}[tb]
+  \begin{center}
+    \fbox{
+      \includegraphics[width=40mm, bb = 0 0 425 647]{images/framework-image.png}
+    }
+    \caption{システム図}
+    \label{system}
+  \end{center}
+\end{figure}
+
+
+
 \subsection{特徴}
 \subsubsection{人力をプログラムに溶けこませる}
 普通にプログラムを書いている中で、オブジェクトを扱っているのと同じような手法で人オブジェクトを利用可能である。
@@ -229,7 +240,7 @@ BabaScript環境では、以下のような流れで人への命令が配信さ�
 クライアント用のライブラリを読み込み、クライアントオブジェクトを生成するだけで、どんなアプリ上でも人力処理のワーカーになることができる。
 拡張性がとても高く、既存のアプリケーションにも組み込むことができる。
 
-\subsection{例}
+\subsection{サンプル}
 例えば、パスタ料理をつくるプログラムならば、以下のプログラム群のような記述方法が考えられる。
 
 \subsubsection{script側プログラム}
@@ -237,20 +248,25 @@ BabaScript環境では、以下のような流れで人への命令が配信さ�
 
 \begin{lstlisting}[caption=,label=]
   baba = Baba.createScript("takumibaba")
-  baba.パスタ鍋に水を入れ沸騰させる();
-  baba.on("boil", function(){
-    baba.パスタ鍋にパスタを投入する()
-    setTimeout(function(){
-      baba.湯切りする()
-      baba.具材を痛めてたらフライパンにパスタを投入する()
-      baba.適度に混ぜる(function(){
-        baba.更に盛りつける()
-        done()
+  list = ["ペペロンチーノ", "カルボナーラ", "トマトクリーム", "ボロネーゼ"]
+  baba.どれを作りますか({format: "list", list: list}, function(data){
+    if(data.value === "ペペロンチーノ"){
+      baba.パスタ鍋に水を入れ沸騰させる();
+      baba.on("boil", function(){
+        baba.パスタ鍋にパスタを投入する()
+        setTimeout(function(){
+          baba.湯切りする()
+          baba.具材を痛めてたらフライパンにパスタを投入する()
+          baba.適度に混ぜる(function(){
+            baba.更に盛りつける()
+            done()
+          });
+        },1000*60*10)
+        baba.にんにくスライスを用意する()
+        baba.鷹の爪を用意する()
+        baba.炒める();
       });
-    },1000*60*10)
-    baba.にんにくスライスを用意する()
-    baba.鷹の爪を用意する()
-    baba.炒める();
+    }
   });
   sensor = Sensor.create("鍋")
   settInterval(function(){
@@ -266,28 +282,61 @@ BabaScript環境では、以下のような流れで人への命令が配信さ�
 人への命令を受け取り、ユーザに提示するプログラムは以下のようなものが考えられる。
 \begin{lstlisting}[caption=,label=]
 <h1 id="title"></h1>
-<button id="true-button"></buttovgnn>
-<button id="false-button"></button>
+<div id="return-value-view">
+</div>
 <script type="text/javascript">
   client = Baba.createClient("takumibaba").on("get_task",function(data){
     title = $("title")
     title.html(data.key)
-    tButton = $("true-button")
-    fButton = $("false-button")
-    tButton.click(function(){
-      client.returnValue(true)
-    })
-    fButton.click(function(){
-      client.returnValue(false)
-    })
+    $("#return-value-view").empty()
+    if(data.format === "list"){
+      select = $("select").addClass("value-list")
+      for(int i=0;i<data.list.length;i++){
+        option = $("<option>"+ list[i] +"</option>")
+        select.append option
+      }
+      button = $("button").click(function(){
+        client.returnValue($("value-list").val())
+      });
+      $("#return-value-view").append(select)
+    }else{
+      tButton = $("button").addClass("true-button").click(function(){
+        client.returnValue(true)
+      });
+      fButton = $("button").addClass("false-button").click(function(){
+        client.returnValue(false)
+      });
+      $("#return-value-view").append(tButton);
+      $("#return-value-view").append(fButton);
+    }
   });
 </script>
 \end{lstlisting}
     
   
 \subsubsection{クライアント}
-クライアントアプリは、以下のようなインタフェースを持つ。
-\includegraphics[width=50mm, bb= 0 0 600 1065]{images/image4.png}
+クライアントアプリは、命令が配信されていない時は待機用の画面を表示しておき、命令が配信された時に、その命令に応じて画面の表示内容を変化させる。
+
+\begin{figure}[tb]
+  \begin{center}
+    \fbox{
+      \includegraphics[width=50mm, bb= 0 0 600 1065]{images/image4.png}
+    }
+    \caption{待機時の画面}
+    \label{babascript-wait}
+  \end{center}
+\end{figure}
+\begin{figure}[tb]
+  \begin{center}
+    \fbox{
+      \includegraphics[width=50mm, bb= 0 0 392 553]{images/babascript-list.png}
+    }
+    \caption{リスト表示時の画面}
+    \label{babascript-list}
+  \end{center}
+\end{figure}
+
+
 
 \section{応用例}
 \subsection{人の仕事や役割をプログラム化する}
@@ -311,8 +360,7 @@ BabaScript環境でならば、プログラム上で人はセンサーやアク�
 
 
 \section{関連研究}
-計算機では処理できないようなタスクを解決するために、人を計算資源としてプログラムに組み込む手法はヒューマンコンピュテーション\cite{HumanComputation}と呼ばれ、様々な研究が行われている。
-
+計算機では処理できないようなタスクを解決するために、人を計算資源としてプログラムに組み込む手法はヒューマンコンピュテーション\cite{humancomputation}と呼ばれ、様々な研究が行われている。
 米Amazonが運営している AmazonMechanicalTurk\cite{amt} は、クラウドソーシングのためのプラットフォームだ。
 mTurk API を通し、人間に対してタスクの実行を依頼することができる。
 AUTOMAN\cite{automan}は、crowdprogrammingという概念を唱え、通常のプログラミング言語内でコンピュータによる計算と人による計算を統合した。
@@ -325,31 +373,31 @@ CyLog\cite{cylog}はDatalogに似たヒューマンコンピュテーション�
 これらの研究は、人を計算資源・データソースとして捉え、コンピュータの代替として人を利用している。
 本研究では、人の行動そのものをプログラムとして記述し、実行可能なものにすることを目的としている。
 
-Human As Sensorなんてものもある。
-Using Stanger as Sensorsでは
-PRISMでは
-これらの研究では、クラウドソーシングやそれに類するプラットフォームを利用して不特定多数の人をセンサーとして利用している。
-本研究は、不特定多数の人を対象としたものではない。
-また、目的は人の行動をプログラムとして記述することにあるため、センサーとしての利用のみを想定してはいない。
+ユビキタスコンピューティングの研究分野においては、Human as Sensor といった概念も存在しており、研究が行われている。
+MoboQ\cite{moboq}では、場所ベースのQ\&Aサービスを実装し、その効果を検証した。
+Moboqではプラットフォームとしてソーシャルメディアを利用しており、ソーシャルメディア上の人たちをセンサーとして利用している。
+スマートフォンを使ったセンシングのためのプラットフォームとしては、PRISM\cite{prism}などが発表されている。
+これらの研究では、人をセンサーとして利用し、情報を収集することを目的としている。
+本研究では、人の行動をプログラムとして記述することを目的としており、その利用方法はセンサーに限定されたものではない。
 
-人のワークフローを定義するWebサービスとしては、atled\cite{atled}やQuestetra\cite{questetra}などが存在するが、プログラムで記述するものではない。
+人のワークフローを定義するWebサービスとしては、atled\cite{atled}やQuestetra\cite{questetra}などが存在するが、これらのサービスは、人の行動をプログラムで記述するものではない。
 BabaScript環境では、人・コンピュータの動作を同一のプログラム上で記述することが可能だ。
 
 \section{おわりに}
-今後は以下のような問題を解決していく。
 \subsection{今後の課題}
+今後は以下の問題について検討する。
 \subsubsection{命令に対する実行保証性}
 プログラムからの命令を人が必ず実行するとは限らない。
 命令が表示されるデバイスを見ていないことや、そもそも命令を無視するといったことも考えられる。
 実行保証性に関しては、今後検討していく必要がある。
 
 \subsection{結論}
-本論文では、人の行動をプログラムするためのプログラミング環境 BabaScript を提案した。
+本論文では、人の行動を記述可能なプログラミング環境 BabaScript を提案した。
 人力処理構文と命令を受け取り値を返すことのできるクライアントアプリケーションを組み合わせることによって、プログラム上で人を表現することが可能になった。
 BabaScript環境においては、人とコンピュータの双方は同じプログラム内で動きを定義することができる。
 今後は、課題の解決と有用性の検証を行う。
 
-\vspace{30mm}
+\vspace{10mm}
 
 \begin{thebibliography}{99}
 \bibitem{humancomputation}
@@ -366,7 +414,11 @@ S. Ahmad, A. Battle, Z. Malkani, and S. Kamvar. The Jabberwocky Programming Envi
 \bibitem{crowddb}
 M. J. Franklin, D. Kossmann, T. Kraska, S. Ramesh, and R. Xin. CrowdDB: Answering Queries with Crowdsourcing. In SIGMOD, pp. 61–72, 2011.
 \bibitem{cylog}
- Atsuyuki Morishima, Norihide Shinagawa, Tomomi Mitsuishi, Hideto Aoki, Shun Fukusumi. “CyLog/Crowd4U: A Declarative Platform for Complex Data-centric
+Atsuyuki Morishima, Norihide Shinagawa, Tomomi Mitsuishi, Hideto Aoki, Shun Fukusumi. “CyLog/Crowd4U: A Declarative Platform for Complex Data-centric"
+\bibitem{moboq}
+Liu, Yefeng and Alexandrova, Todorka and Nakajima, Tatsuo. Using Stranger As Sensors: Temporal and Geo-sensitive Question Answering via Social Media. Proceedings of the 22Nd International Conference on World Wide Web, pp. 803--814, 2013
+\bibitem{prism}
+Das, Tathagata and Mohan, Prashanth and Padmanabhan, Venkata N. and Ramjee, Ramachandran and Sharma, Asankhaya. PRISM: Platform for Remote Sensing Using Smartphones. Proceedings of the 8th International Conference on Mobile Systems, Applications, and Services. pp.63--76, 2010.
 \bibitem{atled}
 https://www.atled.jp/
 \bibitem{questetra}
