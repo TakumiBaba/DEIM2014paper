@@ -12,16 +12,31 @@
 \hoffset -10mm % <-- 左に 10mm 移動
 \voffset -10mm % <-- 上に 10mm 移動
 
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
 
 \lstset{%
-  language={c},
+  language=JavaScript,
   basicstyle={\small},%
   identifierstyle={\small},%
   commentstyle={\small\itshape},%
   keywordstyle={\small\bfseries},%
   ndkeywordstyle={\small},%
   stringstyle={\small\ttfamily},
-  frame={tb},
+  frame={},
   breaklines=true,
   columns=[l]{fullflexible},%
   numbers=left,%
@@ -30,7 +45,7 @@
   numberstyle={\scriptsize},%
   stepnumber=1,
   numbersep=1zw,%
-  lineskip=-0.5ex%
+  lineskip=-1ex%
 }
 
 \newcommand{\AmSLaTeX}{%
@@ -70,7 +85,7 @@
 コンピュータの動作の手順書としてプログラムが、人間の行動の手順書としてマニュアルやレシピといったものが存在する。
 プログラム上で人の行動を記述するためのプログラミング環境 BabaScript を提案する。
 BabaScriptは、人への命令構文と値を返すことのできるクライアントアプリケーションを組み合わせることで、人オブジェクトをプログラム上で表現可能にするための一連の仕組みだ。
-
+BabaScript環境によって、人・実世界・コンピュータの世界をより柔軟にプログラムすることが可能になる。
 \end{jabstract}
 \begin{jkeyword}
 ヒューマンコンピュテーション, プログラミング環境
@@ -95,14 +110,14 @@ if 鍋が沸騰したら
   パスタを鍋に投入する
 \end{lstlisting}
     
-というようなプログラムが、小売店の店員マニュアルでは
+というようなことが、小売店の店員マニュアルでは
 
 \begin{lstlisting}[caption=,label=]
 if レジに人が並んでいる
   2番レジを開ける
 \end{lstlisting}
     
-といったプログラムが記述され、実行されている。
+といった記述がされ、人によって実行されている。
 
 プログラムとレシピやマニュアルは、実行手順を表すという意味では同じものであるが、別の存在として認識されている。
 しかし、近年のコンピュータと人間の密接な関係を考慮すると、この状況は変化していくべきである。
@@ -111,29 +126,32 @@ if レジに人が並んでいる
 人とコンピュータ、両方の世界を記述するための統一的なものは存在せず、両者を同じフォーマットのドキュメントとして記述することはできない。
 
 本論文では、人の行動をプログラム内に記述可能にするプログラミング環境 BabaScript を提案する。
-人の行動をプログラム内で記述可能にすることで、同一フォーマットのデータ上で人とコンピュータ両方への命令を記述することができる。
+BabaScript環境によって、人の行動をプログラム内で記述可能となり、同一フォーマットのデータ上で人とコンピュータ両方への命令を記述することができる。
+また、特殊なプログラミング言語を使わず、高い拡張性を持つため、様々なアプリケーションに組み込むことができる。
 
 \section{BabaScript}
 
-機械と人をプログラム内で完全に同等に扱えるライブラリ BabaScript を開発した。
-BabaScriptは、人への命令構文を含んだオブジェクト(以下、人オブジェクト)を宣言可能にするライブラリだ。
-通信用のライブラリを含んだクライアントアプリケーションと組み合わせることによって、人への命令とその実行結果の取得を実現する。
+BabaScript環境は、人への命令構文をプログラミング言語に付加するライブラリと、プログラムからの命令を受け取り、処理結果をプログラムに返すクライアントライブラリを組み合わせることで実現する。
+どちらのライブラリも、簡単に拡張・組み込みが可能となっている。
+既存のアプリケーションでも簡単にBabaScript環境を導入することができる。
 
 \subsection{人への命令構文}
-人への命令構文を含んだオブジェクトを宣言し、そのオブジェクトに対してメソッド実行をすることで、メソッドと引数を元に人への命令内容を生成する。
-以下のようなプログラムで人への命令を記述する。
+人への命令構文を含んだオブジェクト(以下、人オブジェクト)を宣言可能にするライブラリを実装した。
+javascript(node.js)とrubyの2言語で実装した。
+人オブジェクトを宣言し、そのオブジェクトのメソッドを実行をすることで、人への命令が可能となる。
+オブジェクトに定義されていないメソッドは全て人への命令として解釈され、メソッドと引数を元に人への命令内容が生成される。
+プログラム内で人オブジェクトを宣言するときには、第一引数にidを指定する。
+このidと同一のidを持つクライアントに対し、命令の配信が行われる。
+また、複数のクライアントアプリケーションが同一のidによって生成されている場合、特別なオプションがない場合は、命令は各クライアントアプリケーションに分散して配信される。
+以下のプログラムのような記述方法によって、人オブジェクトを宣言し、人に対して命令を送ることができる。
 
-% \includegraphics[width=80mm, bb=0 0 300 80]{images/image1.png}
 \begin{lstlisting}[caption=,label=]
 baba = new Baba.Script("baba");
-baba.ボイルする(function(result){
+baba.書類整理をする({num: 5}, function(result){
   ...
 });
 \end{lstlisting}
-プログラム側で人オブジェクトを宣言するときには、第一引数にidを指定する。
-このidと同一のidを持つクライアントに対し、命令の配信が行われる。
-また、複数のクライアントアプリケーションが同一のidによって生成されている場合、scriptからの命令は特別な命令がない場合は、クライアントアプリケーションに分散して配信される。
-
+上記のプログラムの場合、メソッド名である"書類整理をする"と第一引数である "{num: 5}" が命令としてクライアントアプリケーションに通知される。
 
 人への命令メソッドの第一引数にオブジェクトを与えることによってクライアントアプリケーション側にオプションとして情報を送ることができる。
 特別なオプションとしてbroadcast が存在する。
@@ -141,7 +159,6 @@ baba.ボイルする(function(result){
 \begin{lstlisting}[caption=,label=]
 baba.ボイルする({broadcast: 5}, function(result){ ... });
 \end{lstlisting}
-  
 
 上記のように、オプションに broadcast: num を指定することによって、同じidを持つ全クライアントに対して同様の命令を送信し、 num で指定した数だけ値が返ってきたらコールバック関数を実行することができる。
 
@@ -153,6 +170,7 @@ baba.ボイルする({broadcast: 5}, function(result){ ... });
 \begin{lstlisting}[caption=,label=]
 baba.数値を入力してください({format: "int"}, function(result){ ... });
 \end{lstlisting}
+数値の他にも、文字列であったりリストの中から選択する、といったインタフェースが考えられる。
 
 人への命令構文を含んだオブジェクトに対してメソッドを実行することによって、
 クライアントアプリケーションを組み合わせることで、人
@@ -160,9 +178,11 @@ baba.数値を入力してください({format: "int"}, function(result){ ... })
 
 \subsection{クライアント}
 
-ワーカー側では、命令を受け取り、値をプログラムに返すためのクライアントオブジェクトを生成する。
+命令を受け取り、値をプログラムに返すための一連の機能をクライアント側のライブラリとして実装した。
+javascript,objective-c,java の3言語で実装されており、iOSやandroidなどのモバイルデバイス上で動作する。
+クライアント側では、BabaScript通信用のクライアントオブジェクトを宣言し、このオブジェクトを通すことでプログラム側との通信が可能となる。
 このクライアントオブジェクトからのメッセージを受け取る関数を実装することによって、プログラマ側で自由にクライアントアプリケーションを実装できる。
-以下のようなプログラムでプログラムからのメッセージを受け取る。
+以下のようなプログラムでプログラムからのメッセージを受け取ることができる。
 
 \begin{lstlisting}[caption=,label=]
 client = new Baba.Client("baba");
@@ -171,11 +191,11 @@ client.on("get_task", function(order){
 });
 \end{lstlisting}
 
-メッセージを受け取る関数内において、ユーザに命令を伝え、処理結果を入力するようなインタフェースを生成してワーカーに提示する。
+メッセージを受け取る関数内において、ユーザに命令を伝え、処理結果を入力するようなインタフェースを生成してワーカーに提示する必要がある。
 また、クライアントオブジェクトが持つメソッド returnValue を使うことで、プログラムに処理結果を返すことができる。
 以下のようなプログラムが考えられる。
 
-\begin{lstlisting}[caption=,label=]
+\begin{lstlisting}[caption=,label=] 
 client.on("get_task", function(result){
   order = new Order(result.key)
   input = new Input(result.format)
@@ -184,13 +204,13 @@ client.on("get_task", function(result){
   });  
 });
 \end{lstlisting}
+
   
-  
-\subsection{利用の流れ}
-本環境では、以下のような流れで利用される
+\subsection{人力構文実行時の流れ}
+BabaScript環境では、以下のような流れで人への命令が配信され、返り値を得ることができる。
 
 \begin{enumerate}
-\item プログラムで人への命令構文を書く
+\item プログラムで人への命令構文を実行する
 \item ネットワークを介して、適切なBabaScript Clientに命令が配信される
 \item BabaScript Client は、命令をユーザに通知する
 \item 人が命令を処理する
@@ -205,88 +225,129 @@ client.on("get_task", function(result){
 人オブジェクトのメソッドを実行すれば、普通のオブジェクトと同じように、値が返ってくる。
 真の意味で、人と通常のオブジェクトは同じものとなる。
 
-\subsubsection{あらゆるWebアプリに人力処理を組み込む}
-クライアントライブラリを読み込み、クライアントオブジェクトを生成するだけで、あらゆるWebアプリ上で人力処理のワーカーになることができる。
-拡張性がとても高く、既存のアプリケーションにも組み込むことができる
+\subsubsection{アプリに人力処理を組み込む}
+クライアント用のライブラリを読み込み、クライアントオブジェクトを生成するだけで、どんなアプリ上でも人力処理のワーカーになることができる。
+拡張性がとても高く、既存のアプリケーションにも組み込むことができる。
 
 \subsection{例}
-パスタ料理をつくるプログラムを以下に示す
+例えば、パスタ料理をつくるプログラムならば、以下のプログラム群のような記述方法が考えられる。
 
 \subsubsection{script側プログラム}
 人への命令を記述するプログラムは、以下のようなものが考えられる。
 
-% \includegraphics[width=100mm, bb=0 0 713 389]{images/image3.png}
-  
 \begin{lstlisting}[caption=,label=]
   baba = Baba.createScript("takumibaba")
   baba.パスタ鍋に水を入れ沸騰させる();
   baba.on("boil", function(){
     baba.パスタ鍋にパスタを投入する()
-    baba.at("10 minutes later", function(){
+    setTimeout(function(){
       baba.湯切りする()
-      baba.具材を痛めてたらフライパンにパスタを投入する().適度に混ぜる(function(){
-        baba.更に盛りつける().done()
+      baba.具材を痛めてたらフライパンにパスタを投入する()
+      baba.適度に混ぜる(function(){
+        baba.更に盛りつける()
+        done()
       });
-    });
-    baba.にんにくスライスを用意する().鷹の爪を用意する().炒める(function(){
-      done()
-    });   
+    },1000*60*10)
+    baba.にんにくスライスを用意する()
+    baba.鷹の爪を用意する()
+    baba.炒める();
   });
   sensor = Sensor.create("鍋")
-  setTinterval(function(){
-    if (sensor.getState === BOIL){ baba.emit("boil")}
+  settInterval(function(){
+    if (sensor.getState === BOIL){
+      baba.emit("boil")
+      clearInterval(arguments.callee)
+    }
   }, 1000)
 \end{lstlisting}
   
 
 \subsubsection{client側プログラム}
 人への命令を受け取り、ユーザに提示するプログラムは以下のようなものが考えられる。
-% \includegraphics[width=100mm, bb=0 0 583 283]{images/image2.png}
-
 \begin{lstlisting}[caption=,label=]
-   <h1 id="title"></h1>
-    <button id="true-button"></button>
-    <button id="false-button"></button>
-    <script type="text/javascript">
-      client = Baba.createClient("takumibaba").on("get_task",function(data){
-        title = $("title")
-        title.html(data.key)
-        tButton = $("true-button")
-        fButton = $("false-button")
-        tButton.click(function(){
-          client.returnValue(true)
-        })
-        fButton.click(function(){
-          client.returnValue(false)
-        })
-      });
-    </script>
+<h1 id="title"></h1>
+<button id="true-button"></buttovgnn>
+<button id="false-button"></button>
+<script type="text/javascript">
+  client = Baba.createClient("takumibaba").on("get_task",function(data){
+    title = $("title")
+    title.html(data.key)
+    tButton = $("true-button")
+    fButton = $("false-button")
+    tButton.click(function(){
+      client.returnValue(true)
+    })
+    fButton.click(function(){
+      client.returnValue(false)
+    })
+  });
+</script>
 \end{lstlisting}
     
   
 \subsubsection{クライアント}
 クライアントアプリは、以下のようなインタフェースを持つ。
+\includegraphics[width=50mm, bb= 0 0 600 1065]{images/image4.png}
+
+\section{応用例}
+\subsection{人の仕事や役割をプログラム化する}
+人の行動をプログラムとして記述可能になることで、人の仕事や役割がプログラム化・実行可能となる。
+仕事や役割はマニュアルやドキュメントという形で言語化されていることが多い。
+これらのマニュアル・ドキュメントをプログラム化し、実行できるようになれば、人はプログラムからの命令に従うだけで様々な仕事や役割を達成することができるようになる。
+ただ命令に従うだけなので、経験・引き継ぎは必要なく、人の代替が容易となる。
+また、全ての仕事はプログラムから管理されるため、人の運用効率の数値化などが可能となる。
+
+
+
+\subsection{柔軟な実世界プログラミング}
+人をセンサーやアクチュエータとして利用することで、現在一般的に使われているセンサーやアクチュエータでは実現困難な実世界プログラミングが可能となる。
+現在のセンサー技術では、その場の雰囲気を数値化・文字列化するなどのコンテキスト情報をうまく扱うことはとても難しい。
+また、アクチュエータも単一の動きに特化したものが多く、複雑な動きを実現することは難しい。
+BabaScript環境でならば、プログラム上で人はセンサーやアクチュエータのオブジェクトと類似の挙動をすることができる。
+
+人とセンサ・アクチュエータをうまく使い分けていくことが可能となる。
+コンテキスト情報を扱いそうなら人に、温度などの数値を取得するだけならばセンサーを使うとことができる。
+センサー・アクチュエータがその場に存在するならばセンサー・アクチュエータを動作させるが、ない場合は人に命令する、といったことも実現可能である。
+
 
 \section{関連研究}
 計算機では処理できないようなタスクを解決するために、人を計算資源としてプログラムに組み込む手法はヒューマンコンピュテーション\cite{HumanComputation}と呼ばれ、様々な研究が行われている。
 
-米Amazonが運営している Amazon MechaicalTurk\cite{amt} は、クラウドソーシングのためのプラットフォームだ。
-
-AUTOMAN\cite{automan}は、cloudprogrammingという概念を唱え、通常のプログラミング言語内で、コンピュータによる計算と人による計算を統合した。
-CrowdForge\cite{crowdforge}は、クラウドソーシングのためのMapReduce実装をした。
-クラウドソーシングするタスクを適切に分割し、人力で解かせた後、集合させるためのツールキットだ。
+米Amazonが運営している AmazonMechanicalTurk\cite{amt} は、クラウドソーシングのためのプラットフォームだ。
+mTurk API を通し、人間に対してタスクの実行を依頼することができる。
+AUTOMAN\cite{automan}は、crowdprogrammingという概念を唱え、通常のプログラミング言語内でコンピュータによる計算と人による計算を統合した。
+CrowdForge\cite{crowdforge}は、MapReduceのような機能をクラウドソーシングのためのフレームワークだ。
+クラウドソーシングするタスクを適切に分割し、人力で解かせた後、集合させるといったことができる。
 jabbewocky\cite{jabberwocky}は、
 CrowdDB\cite{crowddb}では機械だけでは答えられないようなDBへのクエリに対し、クラウドソーシングを使うことで返答させるためのSQLライクなプログラミングを提案している。
-CyLog\cite{cylog}は
-クラウドソーシング/ヒューマンコンピュテーション系の研究は、人を計算資源として捉え、コンピュータの代替として人に処理を行わせることをやっている。
-本研究では、人の行動そのものを記述する。
-その中で、コンピュータの代替としての行動を記述することもある。
+CyLog\cite{cylog}はDatalogに似たヒューマンコンピュテーションのためのプログラミング言語だ。
+人をデータソースとしてプログラムの中で利用する手法を提案している。
+これらの研究は、人を計算資源・データソースとして捉え、コンピュータの代替として人を利用している。
+本研究では、人の行動そのものをプログラムとして記述し、実行可能なものにすることを目的としている。
 
 Human As Sensorなんてものもある。
 Using Stanger as Sensorsでは
 PRISMでは
+これらの研究では、クラウドソーシングやそれに類するプラットフォームを利用して不特定多数の人をセンサーとして利用している。
+本研究は、不特定多数の人を対象としたものではない。
+また、目的は人の行動をプログラムとして記述することにあるため、センサーとしての利用のみを想定してはいない。
+
+人のワークフローを定義するWebサービスとしては、atled\cite{atled}やQuestetra\cite{questetra}などが存在するが、プログラムで記述するものではない。
+BabaScript環境では、人・コンピュータの動作を同一のプログラム上で記述することが可能だ。
 
 \section{おわりに}
+今後は以下のような問題を解決していく。
+\subsection{今後の課題}
+\subsubsection{命令に対する実行保証性}
+プログラムからの命令を人が必ず実行するとは限らない。
+命令が表示されるデバイスを見ていないことや、そもそも命令を無視するといったことも考えられる。
+実行保証性に関しては、今後検討していく必要がある。
+
+\subsection{結論}
+本論文では、人の行動をプログラムするためのプログラミング環境 BabaScript を提案した。
+人力処理構文と命令を受け取り値を返すことのできるクライアントアプリケーションを組み合わせることによって、プログラム上で人を表現することが可能になった。
+BabaScript環境においては、人とコンピュータの双方は同じプログラム内で動きを定義することができる。
+今後は、課題の解決と有用性の検証を行う。
 
 \vspace{30mm}
 
@@ -297,10 +358,19 @@ L. von Ahn. 2007. Human computation. In Proceedings of the 4th international con
 Amazon Machanical Turk
 http://www.mturk.com
 \bibitem{automan}
+Barowy, D. W., Curtsinger, C., Berger, E. D., andMcGregor, A. AutoMan: A Platform for Integrating Human-Based and DigitalComputation. In Proc. OOPSLA (2012).
 \bibitem{crowdforge}
+A. Kittur, B. Smus, and R. E. Kraut. CrowdForge: Crowdsourc- ing Complex Work. Tech. Rep. CMU-HCII-11-100, Human- Computer Interaction Institute, School of Computer Science, Carnegie Mellon University, February 2011.
 \bibitem{jabberwocky}
+S. Ahmad, A. Battle, Z. Malkani, and S. Kamvar. The Jabberwocky Programming Environment for Structured Social Computing. In UIST, pp. 53–64, 2011.
 \bibitem{crowddb}
+M. J. Franklin, D. Kossmann, T. Kraska, S. Ramesh, and R. Xin. CrowdDB: Answering Queries with Crowdsourcing. In SIGMOD, pp. 61–72, 2011.
 \bibitem{cylog}
+ Atsuyuki Morishima, Norihide Shinagawa, Tomomi Mitsuishi, Hideto Aoki, Shun Fukusumi. “CyLog/Crowd4U: A Declarative Platform for Complex Data-centric
+\bibitem{atled}
+https://www.atled.jp/
+\bibitem{questetra}
+http://www.questetra.com/
 \end{thebibliography}
 
 

@@ -3,6 +3,7 @@ all:
   pbibtex   -kanji=utf8 main
   platex    -kanji=utf8 main
   platex    -kanji=utf8 main
+  open main.pdf
   # dvipdfmx  -p a4 main
   
 clean:

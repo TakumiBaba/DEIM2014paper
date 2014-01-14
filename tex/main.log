@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.1.11)  14 JAN 2014 18:19
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013) (format=platex 2014.1.11)  14 JAN 2014 21:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -119,104 +119,107 @@ Package: listings 2007/02/22 1.4 (Carsten Heinz)
 Package: jlisting 2006/02/20 0.2 (Thor)
 \lst@nextchar=\count112
 \lst@inputfile=\read1
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2004/09/05 1.3 listings language file
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
 \c@lstlisting=\count113
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 69.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 84.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 69.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 84.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 78.
+(Font)              <12> on input line 93.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 78.
+(Font)              <8> on input line 93.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 78.
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 78.
+(Font)              <6> on input line 93.
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 93.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 78.
+(Font)              size <10.95> substituted on input line 93.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 78.
+(Font)              size <10.95> substituted on input line 93.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.5> on input line 78.
+(Font)              <10.5> on input line 93.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7.34996> on input line 78.
+(Font)              <7.34996> on input line 93.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.25> on input line 78.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 78.
+(Font)              <5.25> on input line 93.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 93.
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.5> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 78.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 93.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 78.
+(Font)              size <10.95> substituted on input line 93.
 
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10.95> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 80.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 95.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10.95> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 80.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 95.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 80.
+(Font)              <9> on input line 95.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 80.
+(Font)              <5> on input line 95.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <8> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 94.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 109.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <8> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 94.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 109.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <9> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 122.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 138.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <9> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 122.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 138.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 129.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 150.
 [1
 
 
-]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 247.
+] [2]
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 268.
 
  (/usr/local/texlive/2013/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <8> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 247.
- [2]
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 268.
+File: images/image4.png Graphic file (type eps)
 
-LaTeX Warning: Citation `HumanComputation' on page 3 undefined on input line 27
-1.
+<images/image4.png>
 
-[3
+LaTeX Warning: Citation `HumanComputation' on page 3 undefined on input line 31
+4.
+
+[3]
+Missing character: There is no ^^e2 in font cmr8!
+Missing character: There is no ^^80 in font cmr8!
+Missing character: There is no ^^93 in font cmr8!
+Missing character: There is no ^^e2 in font cmr8!
+Missing character: There is no ^^80 in font cmr8!
+Missing character: There is no ^^93 in font cmr8!
+ [4
 
 ] (./main.aux)
 
@@ -225,12 +228,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 2361 strings out of 494008
- 31306 string characters out of 6154472
- 251572 words of memory out of 5000000
- 5834 multiletter control sequences out of 15000+600000
+ 2254 strings out of 494008
+ 29828 string characters out of 6154472
+ 187486 words of memory out of 5000000
+ 5730 multiletter control sequences out of 15000+600000
  20917 words of font info for 81 fonts, out of 8000000 for 9000
  745 hyphenation exceptions out of 8191
- 26i,6n,49p,209b,1235s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 26i,6n,40p,223b,1436s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.dvi (3 pages, 24704 bytes).
+Output written on main.dvi (4 pages, 34020 bytes).
